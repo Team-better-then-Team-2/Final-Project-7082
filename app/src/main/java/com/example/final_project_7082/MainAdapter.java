@@ -115,6 +115,20 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                 int height = WindowManager.LayoutParams.WRAP_CONTENT;
                 dialog.getWindow().setLayout(width,height);
                 dialog.show();
+                final TextView myTitle = dialog.findViewById(R.id.text_title);
+                final TextView myContent = dialog.findViewById(R.id.text_content);
+                Button close = dialog.findViewById(R.id.bt_close);
+                myTitle.setText(title);
+                myContent.setText(content);
+
+                close.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+
+
 
             }
         });
