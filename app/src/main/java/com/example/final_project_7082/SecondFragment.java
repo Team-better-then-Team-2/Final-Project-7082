@@ -20,7 +20,9 @@ import com.example.final_project_7082.Model.AppDatabase;
 import com.example.final_project_7082.Model.Journal;
 import com.example.final_project_7082.Model.JournalDao;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class SecondFragment extends Fragment {
@@ -78,7 +80,8 @@ public class SecondFragment extends Fragment {
                 String sTitle = editText.getText().toString().trim();
 
                 if(!sTitle.equals("")){
-                    Journal data = new Journal(sTitle,"today", "","");
+                    String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+                    Journal data = new Journal(sTitle,timestamp, "","");
                     journalDao.addJournal(data);
                     editText.setText("");
                     journalList.clear();

@@ -100,6 +100,24 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
             }
         });
+
+        holder.textView.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Journal j = journalList.get(holder.getAdapterPosition());
+                final int sID = j.getId();
+                String title = j.getTitle();
+                String content = j.getContent();
+                final Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.dialog_display_journal);
+                int width = WindowManager.LayoutParams.MATCH_PARENT;
+                int height = WindowManager.LayoutParams.WRAP_CONTENT;
+                dialog.getWindow().setLayout(width,height);
+                dialog.show();
+
+            }
+        });
     }
 
     @Override
