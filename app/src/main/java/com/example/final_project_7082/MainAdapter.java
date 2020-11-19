@@ -2,6 +2,7 @@ package com.example.final_project_7082;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -109,9 +110,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             public void onClick(View view) {
                 Journal j = journalList.get(holder.getAdapterPosition());
                 final int sID = j.getId();
-                String title = j.getTitle();
-                String content = j.getContent();
-                String time = j.getTime();
+                final String title = j.getTitle();
+                final String content = j.getContent();
+                final String time = j.getTime();
                 final Dialog dialog = new Dialog(context);
                 dialog.setContentView(R.layout.dialog_display_journal);
                 int width = WindowManager.LayoutParams.MATCH_PARENT;
@@ -122,9 +123,19 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                 final TextView myContent = dialog.findViewById(R.id.text_content);
                 final TextView myTime = dialog.findViewById(R.id.text_time);
                 Button close = dialog.findViewById(R.id.bt_close);
+                Button share = dialog.findViewById(R.id.bt_share);
                 myTitle.setText(title);
                 myContent.setText(content);
                 myTime.setText(time);
+                share.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view) {
+                        Intent share = new Intent(Intent.ACTION_SEND);
+                        share.putExtra(Intent.EXTRA_TEXT, title + content + time);
+                        share.setType("text/plain");
+                        context.startActivity(Intent.createChooser(share, "Share Event"));
+                    }
+                });
                 close.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View view) {
