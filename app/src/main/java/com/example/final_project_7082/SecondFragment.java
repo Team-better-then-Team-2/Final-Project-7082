@@ -88,6 +88,16 @@ public class SecondFragment extends Fragment {
             }
         });
 
+        btReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                journalDao.deleteAll();
+                journalList.clear();
+                journalList.addAll(journalDao.getAllJournal());
+                adapter.notifyDataSetChanged();
+            }
+        });
+
 
 
 

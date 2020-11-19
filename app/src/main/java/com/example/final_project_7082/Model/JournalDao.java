@@ -25,4 +25,10 @@ public interface JournalDao {
 
     @Query("UPDATE Journal SET title = :sTitle , content = :sContent WHERE id = :sID")
     void update(int sID, String sTitle, String sContent);
+
+    @Query("DELETE FROM Journal WHERE id = :sID")
+    void delete(int sID);
+
+    @Query("DELETE FROM Journal")
+    void deleteAll();
 }
