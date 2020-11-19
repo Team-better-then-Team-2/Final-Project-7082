@@ -4,8 +4,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Journal")
-public class Journal {
+@Entity(tableName = "Event")
+public class Event {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
@@ -17,8 +17,7 @@ public class Journal {
 
     @ColumnInfo(name = "content")
     private String content;
-
-    public Journal(String title, String time, String location, String content) {
+    public Event(String title, String time, String location, String content) {
         this.title = title;
         this.time = time;
         this.location = location;
