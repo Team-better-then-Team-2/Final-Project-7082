@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="8dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_title"
+        android:hint="title"
+        android:padding="12dp"
+        android:lines="4"
+        android:gravity="top"
+        android:background="@android:drawable/editbox_background"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_content"
+        android:hint="content"
+        android:padding="12dp"
+        android:lines="8"
+        android:gravity="top"
+        android:background="@android:drawable/editbox_background"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_time"
+        android:hint="time"
+        android:padding="12dp"
+        android:lines="1"
+        android:gravity="top"
+        android:background="@android:drawable/editbox_background"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_close"
+        android:text="close"
+        android:layout_marginTop="8dp"/>
+
+
+
+
+</LinearLayout>
