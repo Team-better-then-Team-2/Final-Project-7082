@@ -53,7 +53,6 @@ public class ThirdFragment extends Fragment implements com.andexert.calendarlist
         View view = inflater.inflate(R.layout.fragment_third, container, false);
         dayPickerView = (DayPickerView) view.findViewById(R.id.pickerView);
         dayPickerView.setController(this);
-
         return view;
     }
 
