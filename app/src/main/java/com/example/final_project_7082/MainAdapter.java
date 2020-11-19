@@ -109,6 +109,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                 final int sID = j.getId();
                 String title = j.getTitle();
                 String content = j.getContent();
+                String time = j.getTime();
                 final Dialog dialog = new Dialog(context);
                 dialog.setContentView(R.layout.dialog_display_journal);
                 int width = WindowManager.LayoutParams.MATCH_PARENT;
@@ -117,10 +118,11 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                 dialog.show();
                 final TextView myTitle = dialog.findViewById(R.id.text_title);
                 final TextView myContent = dialog.findViewById(R.id.text_content);
+                final TextView myTime = dialog.findViewById(R.id.text_time);
                 Button close = dialog.findViewById(R.id.bt_close);
                 myTitle.setText(title);
                 myContent.setText(content);
-
+                myTime.setText(time);
                 close.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View view) {
