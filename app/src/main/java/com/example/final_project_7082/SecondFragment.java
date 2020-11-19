@@ -1,10 +1,12 @@
 package com.example.final_project_7082;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -77,17 +79,33 @@ public class SecondFragment extends Fragment {
         btAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String sTitle = editText.getText().toString().trim();
+                //String sTitle = editText.getText().toString().trim();
 
-                if(!sTitle.equals("")){
-                    String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-                    Journal data = new Journal(sTitle,timestamp, "","");
-                    journalDao.addJournal(data);
-                    editText.setText("");
-                    journalList.clear();
-                    journalList.addAll(journalDao.getAllJournal());
-                    adapter.notifyDataSetChanged();
-                }
+               // if(!sTitle.equals("")){
+                    final Dialog dialog = new Dialog(view.getContext());
+                    dialog.setContentView(R.layout.dialog_update);
+                    int width = WindowManager.LayoutParams.MATCH_PARENT;
+                    int height = WindowManager.LayoutParams.WRAP_CONTENT;
+                    dialog.getWindow().setLayout(width,height);
+                    dialog.show();
+                final EditText editTitle = dialog.findViewById(R.id.edit_title);
+                final EditText editContent = dialog.findViewById(R.id.edit_content);
+                Button save = dialog.findViewById(R.id.bt_update);
+
+                save.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+                        String tmp1 = editTitle.getText().toString().trim();
+                        String tmp2 = editContent.getText().toString().trim();
+                        Journal data = new Journal(tmp1,timestamp, "",tmp2);
+                        appDatabase.getJournalDao().addJournal(data);
+                        journalList.clear();
+                        journalList.addAll(appDatabase.getJournalDao().getAllJournal());
+                        adapter.notifyDataSetChanged();
+                    }
+                });
             }
         });
 
