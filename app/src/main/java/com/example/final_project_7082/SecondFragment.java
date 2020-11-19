@@ -78,8 +78,7 @@ public class SecondFragment extends Fragment {
                 String sTitle = editText.getText().toString().trim();
 
                 if(!sTitle.equals("")){
-                    Journal data = new Journal(sTitle,"today","" +
-                            "");
+                    Journal data = new Journal(sTitle,"today", "","");
                     journalDao.addJournal(data);
                     editText.setText("");
                     journalList.clear();
