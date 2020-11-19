@@ -12,8 +12,10 @@ import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
+    FloatingActionButton buttonShare;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,15 +23,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //buttonShare = findViewById(R.id.buttonShare);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        FloatingActionButton fab = findViewById(R.id.buttonShare);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
     }
 
     @Override
@@ -52,5 +55,23 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void shareEvent(String eventUri) {
+        //Bitmap icon = mBitmap;
+        Intent share = new Intent(Intent.ACTION_SEND);
+        //share.putExtra(Intent.EXTRA_TEXT, Uri.parse(eventUri));
+        share.putExtra(Intent.EXTRA_TEXT, "This is some text that I am sharing.");
+        share.setType("text/plain");
+
+        startActivity(Intent.createChooser(share, "Share Event"));
+    }
+
+    public void shareButton(View view) {
+        //List<Photo> eventList = eventDao.getAllEvents();
+
+        //Event event = eventList.get(eventNumber);
+        //shareEvent(event.getEventUri());
+        shareEvent("1");
     }
 }
