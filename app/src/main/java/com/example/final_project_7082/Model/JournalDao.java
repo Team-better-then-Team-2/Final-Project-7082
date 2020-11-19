@@ -22,4 +22,7 @@ public interface JournalDao {
 
     @Query("SELECT * FROM Journal ORDER BY ID DESC")
     List<Journal> getAllJournal();
+
+    @Query("UPDATE Journal SET title = :sTitle , content = :sContent WHERE id = :sID")
+    void update(int sID, String sTitle, String sContent);
 }
