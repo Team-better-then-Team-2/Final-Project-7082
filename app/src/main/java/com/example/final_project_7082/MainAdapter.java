@@ -131,7 +131,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                     @Override
                     public void onClick(View view) {
                         Intent share = new Intent(Intent.ACTION_SEND);
-                        share.putExtra(Intent.EXTRA_TEXT, title + content + time);
+                        share.putExtra(Intent.EXTRA_TEXT, "Title: " + title + " Content: " + content + " Time: " + time);
                         share.setType("text/plain");
                         context.startActivity(Intent.createChooser(share, "Share Event"));
                     }
