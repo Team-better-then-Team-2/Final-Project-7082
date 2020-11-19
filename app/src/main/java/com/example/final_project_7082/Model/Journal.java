@@ -13,12 +13,15 @@ public class Journal {
     private String title;
 
     private String time;
+    private String location;
+
     @ColumnInfo(name = "content")
     private String content;
 
-    public Journal(String title, String time, String content) {
+    public Journal(String title, String time, String location, String content) {
         this.title = title;
         this.time = time;
+        this.location = location;
         this.content = content;
     }
 
@@ -31,6 +34,10 @@ public class Journal {
     }
 
     public String getTime() {
+        return time;
+    }
+
+    public String getLocation() {
         return time;
     }
 
@@ -48,6 +55,10 @@ public class Journal {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public void setContent(String content) {

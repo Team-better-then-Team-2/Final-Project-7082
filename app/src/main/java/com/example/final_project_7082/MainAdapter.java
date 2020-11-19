@@ -87,6 +87,19 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
             }
         });
+        holder.btDelete.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Journal j = journalList.get(holder.getAdapterPosition());
+                int sID = j.getId();
+                appDatabase.getJournalDao().delete(sID);
+                journalList.clear();
+                journalList.addAll(appDatabase.getJournalDao().getAllJournal());
+                notifyDataSetChanged();
+
+            }
+        });
     }
 
     @Override

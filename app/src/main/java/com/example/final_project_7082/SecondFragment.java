@@ -78,13 +78,23 @@ public class SecondFragment extends Fragment {
                 String sTitle = editText.getText().toString().trim();
 
                 if(!sTitle.equals("")){
-                    Journal data = new Journal(sTitle,"today","haha");
+                    Journal data = new Journal(sTitle,"today", "","");
                     journalDao.addJournal(data);
                     editText.setText("");
                     journalList.clear();
                     journalList.addAll(journalDao.getAllJournal());
                     adapter.notifyDataSetChanged();
                 }
+            }
+        });
+
+        btReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                journalDao.deleteAll();
+                journalList.clear();
+                journalList.addAll(journalDao.getAllJournal());
+                adapter.notifyDataSetChanged();
             }
         });
 
