@@ -18,7 +18,9 @@ import androidx.room.Room;
 import com.example.final_project_7082.Model.AppDatabase;
 import com.example.final_project_7082.Model.Journal;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
@@ -75,7 +77,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                     @Override
                     public void onClick(View view) {
                        dialog.dismiss();
-
+                        String timestamp = new SimpleDateFormat("yyyyMMdd").format(new Date());
                         String tmp1 = editTitle.getText().toString().trim();
                         String tmp2 = editContent.getText().toString().trim();
                         appDatabase.getJournalDao().update(sID,tmp1,tmp2);

@@ -96,7 +96,7 @@ public class SecondFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         dialog.dismiss();
-                        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+                        String timestamp = new SimpleDateFormat("yyyyMMdd").format(new Date());
                         String tmp1 = editTitle.getText().toString().trim();
                         String tmp2 = editContent.getText().toString().trim();
                         Journal data = new Journal(tmp1,timestamp, "",tmp2);
