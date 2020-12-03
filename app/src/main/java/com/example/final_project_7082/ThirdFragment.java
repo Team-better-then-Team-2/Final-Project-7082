@@ -54,14 +54,6 @@ public class ThirdFragment extends Fragment implements com.andexert.calendarlist
         dayPickerView = (DayPickerView) view.findViewById(R.id.pickerView);
         dayPickerView.setController(this);
 
-        view.findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(ThirdFragment.this)
-                        .navigate(R.id.action_thirdFragment_to_fourthFragment);
-            }
-        });
-
         return view;
     }
 
