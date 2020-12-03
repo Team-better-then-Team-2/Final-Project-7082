@@ -7,6 +7,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.View;
 
@@ -33,6 +34,14 @@ public class MainActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+        FloatingActionButton baf = findViewById(R.id.floatingActionButton);
+            baf.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    NavHostFragment.findNavController(getSupportFragmentManager().getPrimaryNavigationFragment())
+                            .navigate(R.id.action_global_FirstFragment);
+                }
+            });
     }
 
     @Override
