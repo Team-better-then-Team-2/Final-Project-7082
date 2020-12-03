@@ -61,7 +61,6 @@ public class ThirdFragment extends Fragment implements com.andexert.calendarlist
                         .navigate(R.id.action_thirdFragment_to_fourthFragment);
             }
         });
-
         return view;
     }
 
@@ -92,7 +91,5 @@ public class ThirdFragment extends Fragment implements com.andexert.calendarlist
         eventList = eventDao.getAllEvent();
         Log.d("Event", eventList.toString());
     }
-
-
 
 }

@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstFragment">
+    tools:context=".FirstFragment"
+    android:background="@color/colorPrimary"
+    >
 
     <TextView
         android:id="@+id/textview_first"
@@ -15,7 +17,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.487" />
+        app:layout_constraintVertical_bias="0.487"
+        android:textColor="@color/colorText"/>
 
     <Button
         android:id="@+id/button_first"
@@ -26,5 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.684" />
+        app:layout_constraintVertical_bias="0.684"
+        android:radius="100dp"
+        android:background="@color/colorPrimaryDark"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
