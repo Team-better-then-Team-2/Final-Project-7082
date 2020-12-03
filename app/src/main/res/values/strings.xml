@@ -6,7 +6,7 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="Event">Event</string>
     <string name="Journal">Journal</string>
-    <string name="previous">Previous</string>
+    <string name="previous">Back</string>
     <string name="add_event">Add Event</string>
 
     <string name="hello_first_fragment">Me.log</string>
