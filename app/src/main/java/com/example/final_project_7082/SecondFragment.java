@@ -21,6 +21,7 @@ import androidx.room.Room;
 import com.example.final_project_7082.Model.AppDatabase;
 import com.example.final_project_7082.Model.Journal;
 import com.example.final_project_7082.Model.JournalDao;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -50,6 +51,9 @@ public class SecondFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        FloatingActionButton bbutton = (FloatingActionButton) ((MainActivity)getActivity()).findViewById(R.id.HomeButton);
+        bbutton.setVisibility(View.VISIBLE);
 /*
         view.findViewById(R.id.button_second).setOnClickListener(new View.OnClickListener() {
             @Override

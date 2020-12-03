@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 //        setSupportActionBar(toolbar);
         //buttonShare = findViewById(R.id.buttonShare);
 
-        FloatingActionButton fab = findViewById(R.id.buttonShare);
+//        FloatingActionButton fab = findViewById(R.id.buttonShare);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
-        FloatingActionButton baf = findViewById(R.id.floatingActionButton);
+        FloatingActionButton baf = findViewById(R.id.HomeButton);
             baf.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
