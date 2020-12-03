@@ -69,13 +69,6 @@ public class Event {
         this.time = time;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
     public void setContent(String content) {
         this.content = content;
     }
