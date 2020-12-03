@@ -13,15 +13,26 @@ public class Event {
     private String title;
 
     private String time;
-    private String location;
-
     @ColumnInfo(name = "content")
     private String content;
-    public Event(String title, String time, String location, String content) {
+
+    @ColumnInfo(name = "day")
+    private Integer day;
+
+    @ColumnInfo(name = "month")
+    private Integer month;
+
+    @ColumnInfo(name = "year")
+    private Integer year;
+
+
+    public Event(String title, String time, String content, Integer day, Integer month, Integer year) {
         this.title = title;
         this.time = time;
-        this.location = location;
         this.content = content;
+        this.day = day;
+        this.month = month;
+        this.year = year;
     }
 
     public int getId() {
@@ -36,13 +47,15 @@ public class Event {
         return time;
     }
 
-    public String getLocation() {
-        return time;
-    }
-
     public String getContent() {
         return content;
     }
+
+    public Integer getDay() { return day; }
+
+    public Integer getMonth() { return month; }
+
+    public Integer getYear() { return year; }
 
     public void setId(int id) {
         this.id = id;
@@ -63,4 +76,13 @@ public class Event {
     public void setContent(String content) {
         this.content = content;
     }
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setDay(Integer day) { this.day = day; }
+
+    public void setMonth(Integer month) { this.month = month; }
+
+    public void setYear(Integer year) { this.year = year; }
 }
