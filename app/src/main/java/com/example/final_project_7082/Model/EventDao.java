@@ -25,10 +25,4 @@ public interface EventDao {
 
     @Query("UPDATE Event SET title = :sTitle , content = :sContent WHERE id = :sID")
     void update(int sID, String sTitle, String sContent);
-
-    @Query("DELETE FROM Event WHERE id = :sID")
-    void delete(int sID);
-
-    @Query("DELETE FROM Event")
-    void deleteAll();
 }
