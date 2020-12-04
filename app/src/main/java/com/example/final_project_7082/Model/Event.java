@@ -12,21 +12,22 @@ public class Event {
     @ColumnInfo(name = "title")
     private String title;
 
+    @ColumnInfo(name = "Create_date")
     private String time;
     @ColumnInfo(name = "content")
     private String content;
 
     @ColumnInfo(name = "day")
-    private Integer day;
+    private int day;
 
     @ColumnInfo(name = "month")
-    private Integer month;
+    private int month;
 
     @ColumnInfo(name = "year")
-    private Integer year;
+    private int year;
 
 
-    public Event(String title, String time, String content, Integer day, Integer month, Integer year) {
+    public Event(String title, String time, String content, int day, int month, int year) {
         this.title = title;
         this.time = time;
         this.content = content;
@@ -51,11 +52,11 @@ public class Event {
         return content;
     }
 
-    public Integer getDay() { return day; }
+    public int getDay() { return day; }
 
-    public Integer getMonth() { return month; }
+    public int getMonth() { return month; }
 
-    public Integer getYear() { return year; }
+    public int getYear() { return year; }
 
     public void setId(int id) {
         this.id = id;

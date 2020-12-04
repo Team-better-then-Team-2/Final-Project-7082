@@ -6,5 +6,5 @@ import androidx.room.RoomDatabase;
 @Database(entities = {Journal.class, Event.class}, version=1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase{
     public abstract JournalDao getJournalDao();
-    public abstract EventDao getEventDao();
+    public abstract  EventDao getEventDao();
 }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/thirdFragment">
 
     <fragment
         android:id="@+id/FirstFragment"
@@ -39,6 +39,21 @@
         <action
             android:id="@+id/action_thirdFragment_to_fourthFragment"
             app:destination="@id/fourthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fourthFragment"
+        android:name="com.example.final_project_7082.FourthFragment"
+        android:label="fragment_fourth"
+        tools:layout="@layout/fragment_fourth" >
+        <argument
+            android:name="Year"
+            app:argType="integer" />
+        <argument
+            android:name="Month"
+            app:argType="integer" />
+        <argument
+            android:name="Day"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/fourthFragment"

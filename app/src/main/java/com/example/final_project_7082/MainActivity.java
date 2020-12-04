@@ -17,6 +17,7 @@ import android.content.Intent;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+    FloatingActionButton buttonShare;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
 //        setSupportActionBar(toolbar);
         //buttonShare = findViewById(R.id.buttonShare);
 
-//        FloatingActionButton fab = findViewById(R.id.buttonShare);
+        FloatingActionButton fab = findViewById(R.id.buttonShare);
+
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -66,4 +68,21 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void shareEvent(String eventUri) {
+        //Bitmap icon = mBitmap;
+        Intent share = new Intent(Intent.ACTION_SEND);
+        //share.putExtra(Intent.EXTRA_TEXT, Uri.parse(eventUri));
+        share.putExtra(Intent.EXTRA_TEXT, "This is some text that I am sharing.");
+        share.setType("text/plain");
+
+        startActivity(Intent.createChooser(share, "Share Event"));
+    }
+
+    public void shareButton(View view) {
+        //List<Photo> eventList = eventDao.getAllEvents();
+
+        //Event event = eventList.get(eventNumber);
+        //shareEvent(event.getEventUri());
+        shareEvent("1");
+    }
 }

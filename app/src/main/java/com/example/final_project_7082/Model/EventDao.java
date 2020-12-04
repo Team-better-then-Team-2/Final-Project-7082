@@ -23,12 +23,15 @@ public interface EventDao {
     @Query("SELECT * FROM Event ORDER BY ID DESC")
     List<Event> getAllEvent();
 
-    @Query("UPDATE Event SET title = :sTitle , content = :sContent WHERE id = :sID")
-    void update(int sID, String sTitle, String sContent);
+    @Query("SELECT * FROM Event WHERE day = :myday")
+    List<Event> selectEvents(int myday);
+
+    @Query("UPDATE Event SET title = :title , content = :content, day = :day, month = :month, year = :year WHERE id = :sID")
+    void update(int sID, String title, String content, int day, int month, int year);
 
     @Query("DELETE FROM Event WHERE id = :sID")
     void delete(int sID);
 
-    @Query("DELETE FROM Event")
-    void deleteAll();
+    @Query("SELECT * FROM Event WHERE day = :day AND month= :month AND year = :year")
+    List<Event> selectEvents(int year,int month,int day);
 }
