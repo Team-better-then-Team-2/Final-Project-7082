@@ -17,19 +17,20 @@
         calendar:drawRoundRect="true"
         calendar:firstMonth="december"
         calendar:lastMonth="december"
-        calendar:textSizeMonth="20dp" />                                                 
+        calendar:textSizeMonth="20dp" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="158dp"
-        android:layout_marginEnd="155dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="93dp"
+        android:layout_marginBottom="21dp"
+        android:background="@drawable/oval_button"
         android:text="Add Event" />
 
 </RelativeLayout>

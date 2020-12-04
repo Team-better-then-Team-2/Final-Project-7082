@@ -57,16 +57,16 @@ public class ThirdFragment extends Fragment implements com.andexert.calendarlist
             Bundle savedInstanceState
     ) {
         // Inflate the layout for this fragment
-      
-        view= inflater.inflate(R.layout.fragment_third, container, false);
+
+        view = inflater.inflate(R.layout.fragment_third, container, false);
         dayPickerView = (DayPickerView) view.findViewById(R.id.pickerView);
         dayPickerView.setController(this);
-        FloatingActionButton bbutton = (FloatingActionButton) ((MainActivity)getActivity()).findViewById(R.id.HomeButton);
+        FloatingActionButton bbutton = (FloatingActionButton) ((MainActivity) getActivity()).findViewById(R.id.HomeButton);
         bbutton.setVisibility(View.VISIBLE);
         addEvent = view.findViewById(R.id.button2);
-        appDatabase = Room.databaseBuilder(view.getContext(), AppDatabase.class,"word database")
+        appDatabase = Room.databaseBuilder(view.getContext(), AppDatabase.class, "word database")
                 .allowMainThreadQueries().build();
-        eventDao=appDatabase.getEventDao();
+        eventDao = appDatabase.getEventDao();
         addEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,7 +75,7 @@ public class ThirdFragment extends Fragment implements com.andexert.calendarlist
                 dialog.setContentView(R.layout.dialog_new_event);
                 int width = WindowManager.LayoutParams.MATCH_PARENT;
                 int height = WindowManager.LayoutParams.WRAP_CONTENT;
-                dialog.getWindow().setLayout(width,height);
+                dialog.getWindow().setLayout(width, height);
                 dialog.show();
                 final EditText editYear = dialog.findViewById(R.id.event_year);
                 final EditText editMonth = dialog.findViewById(R.id.event_month);
@@ -84,7 +84,7 @@ public class ThirdFragment extends Fragment implements com.andexert.calendarlist
                 final EditText editContent = dialog.findViewById(R.id.edit_event_content);
                 Button save = dialog.findViewById(R.id.bt_save_event);
 
-                save.setOnClickListener(new View.OnClickListener(){
+                save.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         dialog.dismiss();
@@ -95,14 +95,14 @@ public class ThirdFragment extends Fragment implements com.andexert.calendarlist
                         String tmp4 = editTitle.getText().toString().trim();
                         String tmp5 = editContent.getText().toString().trim();
 
-                        Event data = new Event(tmp4,timestamp,tmp5, Integer.parseInt(tmp3),Integer.parseInt(tmp2),Integer.parseInt(tmp1));
+                        Event data = new Event(tmp4, timestamp, tmp5, Integer.parseInt(tmp3), Integer.parseInt(tmp2), Integer.parseInt(tmp1));
                         eventDao.addEvent(data);
                         List<Event> list = eventDao.getAllEvent();
-                        String text="";
-                        for(int i=0;i<list.size();i++){
+                        String text = "";
+                        for (int i = 0; i < list.size(); i++) {
                             Event myevent = list.get(i);
-                            text += myevent.getId() + ": " + myevent.getTitle()+ "\n" + myevent.getDay() + "\n"
-                                    +myevent.getMonth()+ "\n" + myevent.getTime() + "\n\n\n";
+                            text += myevent.getId() + ": " + myevent.getTitle() + "\n" + myevent.getDay() + "\n"
+                                    + myevent.getMonth() + "\n" + myevent.getTime() + "\n\n\n";
 
                         }
                         Log.d("ALL my event: \n", text);
@@ -110,7 +110,8 @@ public class ThirdFragment extends Fragment implements com.andexert.calendarlist
                 });
             }
         });
-
+        return view;
+    }
 
  /*
         view.findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
@@ -121,9 +122,7 @@ public class ThirdFragment extends Fragment implements com.andexert.calendarlist
             }
         });
 */
-  
-      
-    }
+
 
     @Override
     public int getMaxYear()

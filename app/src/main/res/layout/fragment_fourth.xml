@@ -6,16 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginTop="50dp"
     android:padding="16dp"
+    android:background="@color/colorPrimary"
     tools:context=".FourthFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recycler_view"
-        android:layout_marginTop="8dp"
-        tools:listitem="@layout/list_row_main"/>
-
-
+        tools:listitem="@layout/list_row_main" />
 </LinearLayout>
