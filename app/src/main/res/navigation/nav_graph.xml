@@ -55,4 +55,12 @@
             android:name="Day"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/fourthFragment"
+        android:name="com.example.final_project_7082.FourthFragment"
+        android:label="fragment_fourth"
+        tools:layout="@layout/fragment_fourth" />
+    <action
+        android:id="@+id/action_global_FirstFragment"
+        app:destination="@id/FirstFragment" />
 </navigation>

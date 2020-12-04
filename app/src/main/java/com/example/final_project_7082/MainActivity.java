@@ -7,12 +7,14 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     FloatingActionButton buttonShare;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         //buttonShare = findViewById(R.id.buttonShare);
 
         FloatingActionButton fab = findViewById(R.id.buttonShare);
+
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -33,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+        FloatingActionButton baf = findViewById(R.id.HomeButton);
+            baf.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    NavHostFragment.findNavController(getSupportFragmentManager().getPrimaryNavigationFragment())
+                            .navigate(R.id.action_global_FirstFragment);
+                }
+            });
     }
 
     @Override

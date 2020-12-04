@@ -29,7 +29,6 @@ import java.util.List;
 
 public class FourthFragment extends Fragment {
 
-
     RecyclerView recyclerView;
     List<Event> EventlList = new ArrayList<>();
     LinearLayoutManager linearLayoutManager;
@@ -67,9 +66,6 @@ public class FourthFragment extends Fragment {
         //maybe problem
         adapter = new EventAdapter((Activity) view.getContext(),EventlList);
         recyclerView.setAdapter(adapter);
-
-
-
 
     }
 }

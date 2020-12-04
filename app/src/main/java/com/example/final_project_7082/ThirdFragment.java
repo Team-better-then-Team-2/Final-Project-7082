@@ -30,10 +30,12 @@ import com.andexert.calendarlistview.library.DayPickerView;
 import com.andexert.calendarlistview.library.SimpleMonthAdapter;
 
 import com.example.final_project_7082.Model.*;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class ThirdFragment extends Fragment implements com.andexert.calendarlistview.library.DatePickerController {
@@ -48,16 +50,19 @@ public class ThirdFragment extends Fragment implements com.andexert.calendarlist
     EventDao eventDao;
     DayPickerView dayPickerView;
     View view;
-
+  
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
         // Inflate the layout for this fragment
+      
         view= inflater.inflate(R.layout.fragment_third, container, false);
         dayPickerView = (DayPickerView) view.findViewById(R.id.pickerView);
         dayPickerView.setController(this);
+        FloatingActionButton bbutton = (FloatingActionButton) ((MainActivity)getActivity()).findViewById(R.id.HomeButton);
+        bbutton.setVisibility(View.VISIBLE);
         addEvent = view.findViewById(R.id.button2);
         appDatabase = Room.databaseBuilder(view.getContext(), AppDatabase.class,"word database")
                 .allowMainThreadQueries().build();
@@ -116,7 +121,8 @@ public class ThirdFragment extends Fragment implements com.andexert.calendarlist
             }
         });
 */
-        return view;
+  
+      
     }
 
     @Override
@@ -153,7 +159,4 @@ public class ThirdFragment extends Fragment implements com.andexert.calendarlist
         eventList = eventDao.getAllEvent();
         Log.d("Event", eventList.toString());
     }
-
-
-
 }

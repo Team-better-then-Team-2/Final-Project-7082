@@ -17,7 +17,6 @@ public class Event {
     @ColumnInfo(name = "content")
     private String content;
 
-
     @ColumnInfo(name = "day")
     private int day;
 
